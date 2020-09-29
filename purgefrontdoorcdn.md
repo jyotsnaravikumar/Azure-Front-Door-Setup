@@ -75,7 +75,9 @@ stages:
 
 ```
 
-```yaml purge-template.yml
+purge-template.yml
+
+```yaml
 jobs:
 - job: purge
   pool:
