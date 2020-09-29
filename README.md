@@ -120,5 +120,5 @@ This ensures http calls are routed to https
 
 ## Automating FrontDoor CDN Purge
 
-[Automating FrontDoor CDN Purge from Azure Devops](purgefrontdoorcdn.md)
+[Automating FrontDoor CDN Purge from Azure Devops](PurgeFrontdoorCdn.md)
 

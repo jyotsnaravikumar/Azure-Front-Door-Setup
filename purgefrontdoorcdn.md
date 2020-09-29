@@ -2,7 +2,8 @@
 
 When Azure Frontdoor with CDN is used to deliver content, you may need to purge your endpoint so that changes you make are sent to your users, as files are cached in the Azure CDN until their time-to-live (TTL) expires. If you don’t set a TTL for your files, Azure automatically sets a TTL of 7 days. Even if you set a lower TTL, your updates may not coincide with the cache expiration.
 
-Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. Here is Azure CDN POP locations from Microsoft [https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations].
+Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. 
+[Here is Azure CDN POP locations from Microsoft](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations)
 
 ## Purge Azure Frontdoor CDN from Azure Portal
 
@@ -20,9 +21,9 @@ az network front-door purge-endpoint --resource-group myrg --name mymap --conten
 ## Programmatically Purging Azure Frontdoor CDN With AzDevops
 
  1. Create a Azure Service Connection by creating a service principal so that devops process has access to perform pruging operation on frontdoor resource
-    1. 1a Create a App Registration -> as spn-devops-dev
-    2. 1b Goto Certificates and Secrets -> Add secret , note the ApplicationId and Secret
-    3. 1c Goto Frontdoor instance -> open Access Control (IAM) -> Add Role Assignment -> Role as "Contributor" -> Assign Access To-> "user, groups or service principal" -> Select -> search for service principal spn-devops-dev -> Select
+    1. Create a App Registration -> as spn-devops-dev
+    2. Goto Certificates and Secrets -> Add secret , note the ApplicationId and Secret
+    3. Goto Frontdoor instance -> open Access Control (IAM) -> Add Role Assignment -> Role as "Contributor" -> Assign Access To-> "user, groups or service principal" -> Select -> search for service principal spn-devops-dev -> Select
     4. Note the Azure Service Connection name - as mymap-dev-service-connection
  2. Add environment variables for Azure FrontDoor, ResourceGroup and Service Connection
  3. Add a purging step which depends on the successly deploy. This ensure the cdn cache is refreshed with newer contents from the build after every build.
