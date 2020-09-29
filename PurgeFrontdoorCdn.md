@@ -1,9 +1,15 @@
 # Purging Azure FrontDoor CDN With AzDevops
 
-When Azure Frontdoor with CDN is used to deliver content, you may need to purge your endpoint so that changes you make are sent to your users, as files are cached in the Azure CDN until their time-to-live (TTL) expires. If you don’t set a TTL for your files, Azure automatically sets a TTL of 7 days. Even if you set a lower TTL, your updates may not coincide with the cache expiration.
+## Benefits of using Frontdoor with CDN
+
+Content Delivery Networks (CDNs) accelerate web traffic across the internet through servers residing in strategic locations (known as points of presence or PoPs) across the globe. Each PoP has a number of caching servers, each of which contains a cached version of your website or application. By bringing content closer to each visitor, CDNs improve performance and reduce the load on the origin server. This feature makes Frontdoor a powerful application delivery network.
 
 Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. 
-[Here is Azure CDN POP locations from Microsoft](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations)
+[Azure CDN POP locations from Microsoft](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations)
+
+## Adding CDN capability to Frontdoor is just one click feature
+
+![RoutingRulesCacheBehaior](imgs/afd/3a_addroutingrule_caching.png)
 
 ## Purge Azure Frontdoor CDN from Azure Portal
 
@@ -92,7 +98,3 @@ jobs:
         az extension add --name front-door
         az network front-door purge-endpoint --resource-group ${{ parameters.resource_group}} --name ${{ parameters.front_door}} --content-paths "/"
 ```
-
-## Benefit of using FrontDoor with CDN
-
-Content Delivery Networks (CDNs) accelerate web traffic across the internet through servers residing in strategic locations (known as points of presence or PoPs) across the globe. Each PoP has a number of caching servers, each of which contains a cached version of your website or application. By bringing content closer to each visitor, CDNs improve performance and reduce load on the origin server.
