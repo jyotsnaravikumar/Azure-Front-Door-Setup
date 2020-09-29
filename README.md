@@ -116,3 +116,9 @@ This ensures http calls are routed to https
 ![AddHttpsRedirectRoutingRule](imgs/afd/5a_add_https_routingrule.png)
 
 ![AddHttpsRedirectRoutingRule](imgs/afd/5b_add_https_routingrule.png)
+
+
+## Automating FrontDoor CDN Purge
+
+[Automating FrontDoor CDN Purge from Azure Devops](purgefrontdoorcdn.md)
+
