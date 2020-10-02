@@ -1,4 +1,4 @@
-# Get Started with Azure Frontdoor for Custom Domain/s
+# Get Started with Azure Frontdoor for with WAF and CDN associated with Custom Domain/s
 
 ## What is Azure Frontdoor
 
